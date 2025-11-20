@@ -1,0 +1,26 @@
+name: 06-step-condition
+on:
+  workflow_dispatch:
+    inputs:
+       property1:
+        description: 'Property 1'     
+        required: true
+        default: 'option 1' 
+        type: choice
+        options:
+        - 'option 1'
+        - 'option 2'
+       property2:
+        description: 'Property 2'
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo Properties
+        if: ${{ inputs.property1 == 'option 2' }}
+        run: echo "Build Run manuell $PROPERTY1 $PROPERTY2"
+        env:
+            PROPERTY1:  ${{ inputs.property1 }}
+            PROPERTY2:  ${{ inputs.property2 }}
+    
