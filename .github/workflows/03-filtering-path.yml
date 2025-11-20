@@ -1,0 +1,10 @@
+name: 03-filtering-path
+on:
+  push:
+    paths:
+        - 'Application1/**'
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "Application 1 build"
