@@ -1,0 +1,20 @@
+name: 04-workflow-dispatch
+on:
+  workflow_dispatch:
+    inputs:
+       property1:
+        description: 'Property 1'     
+        required: true
+        default: 'option 1' 
+        type: choice
+        options:
+        - 'option 1'
+        - 'option 2'
+       proptery2:
+        description: 'Property 2'
+        type: string
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo $"Build Run manuell {{ inputs.property1 }} {{ inputs.property2 }}"
