@@ -1,0 +1,19 @@
+name: 16-build-dotnet
+on:
+  push:
+  workflow_dispatch:
+jobs:    
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: 8.0.x
+      - name: Restore dependencies
+        run: dotnet restore messages/src/Messages.csproj
+      - name: Build
+        run: dotnet build --no-restore messages/src/Messages.csproj
+      - name: Publish
+        run: dotnet publish -c release -o out messages/src/Messages.csproj
