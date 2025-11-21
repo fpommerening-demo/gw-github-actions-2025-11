@@ -1,0 +1,9 @@
+name: 23-environment
+on:
+  push:
+jobs:
+  showenv:
+    runs-on: ubuntu-latest
+    environment: Demo
+    steps:
+      - run: echo ${{ env.DEMO_ENV }}
