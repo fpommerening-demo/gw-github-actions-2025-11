@@ -17,8 +17,8 @@
     <PackageReference Include="xunit.runner.visualstudio" Version="2.5.3" />
   </ItemGroup>
 
-  <propertygroup>
-    <restorepackageswithlockfile>true</restorepackageswithlockfile>
-  </propertygroup>
+   <PropertyGroup>
+    <RestorePackagesWithLockFile>true</RestorePackagesWithLockFile>
+  </PropertyGroup>
 
 </Project>
