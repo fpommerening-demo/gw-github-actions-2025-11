@@ -12,5 +12,5 @@ spec:
         app: webapp
     spec:
       containers:
-      - image: docker pull ghcr.io/fpommerening-demo/gw-message-demo:v1.0.7
+      - image: ghcr.io/fpommerening-demo/gw-message-demo:v1.0.7
         name: app
