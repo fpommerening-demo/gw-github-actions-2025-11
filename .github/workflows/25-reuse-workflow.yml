@@ -1,0 +1,20 @@
+name: 25-reuse-workflow
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - 'webapp/**'
+
+permissions: 
+  packages: write
+jobs:
+  build-v1:
+    uses: ./.github/workflows/subworkflow.yml
+    with:
+      image-version: "type=raw,value=1.0.0"
+      build-context: ./webapp/v1
+  build-v2:
+    uses: ./.github/workflows/subworkflow.yml
+    with:
+      image-version: "type=raw,value=2.0.0"
+      build-context: ./webapp/v2
